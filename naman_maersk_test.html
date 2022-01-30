@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Test For Maersk</title>
+
+  <style>
+    .btn-shuffle-sort {
+      background-color: #72C3DC;
+      border: none;
+      color: #FFFFFF;
+      margin-top: 4px;
+      box-shadow: 0 2px #2B8EAD;
+      margin-bottom: 10px;
+      padding: 9px 12px;
+      border-radius: 4px;
+      width: 50%;
+    }
+
+    .box {
+      text-align: center;
+      box-sizing: border-box;
+      width: 32%;
+      height: 150px;
+      font-size: 70px;
+      font-family: initial;
+      color: white;
+      float: left;
+    }
+
+    .firstDiv {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .header {
+      font-size: 30px;
+      font-weight: bold;
+      font-family: initial;
+    }
+
+    .maindiv {
+      border-block-start: 4px solid #BFBFBF;
+      margin: 10px;
+      background-color: #EFEFEF;
+    }
+
+    .footer {
+      font-size: 30px;
+      font-family: italic;
+      position: absolute;
+      right: 46%;
+      bottom: 10px;
+      text-align: center;
+    }
+
+    @media only screen and (max-width: 600px) {
+      body {
+        background-color: black;
+      }
+
+      .footer {
+        font-size: 18px;
+        font-family: italic;
+        position: absolute;
+        right: 40px;
+        bottom: 0px;
+        text-align: center;
+        color: #fff;
+      }
+
+      .maindiv {
+        display: flex;
+        flex-direction: column-reverse;
+        background: #fff;
+        border: 0px;
+      }
+
+      .header {
+        display: block;
+        margin: 0px;
+        background: #545454;
+        color: #fff;
+        font-size: 26px;
+        font-family: sans-serif;
+      }
+
+      .mobile-box1 {
+        border-left: 10px solid #6F98A8;
+      }
+
+      .mobile-box2 {
+        border-left: 10px solid #2B8EAD;
+      }
+
+      .mobile-box3 {
+        border-left: 10px solid #2F454E;
+      }
+
+      .mobile-box4 {
+        border-left: 10px solid #2B8EAD;
+      }
+
+      .mobile-box5 {
+        border-left: 10px solid #2F454E;
+      }
+
+      .mobile-box6 {
+        border-left: 10px solid #BFBFBF;
+      }
+
+      .mobile-box7 {
+        border-left: 10px solid #BFBFBF;
+      }
+
+      .mobile-box8 {
+        border-left: 10px solid #6F98A8;
+      }
+
+      .mobile-box9 {
+        border-left: 10px solid #2F454E;
+      }
+
+      .btn-shuffle-sort {
+        background-color: #72C3DC;
+        border: none;
+        color: #FFFFFF;
+        margin-top: 4px;
+        box-shadow: 0 2px #2B8EAD;
+        margin-bottom: 10px;
+        padding: 9px 12px;
+        border-radius: 4px;
+        width: 90px;
+      }
+
+      .box {
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        background: #efefef !important;
+        padding: 6px 0px;
+        font-size: 15px;
+        border-bottom: 1px solid #fff;
+        font-family: initial;
+        color: black;
+      }
+
+      .col-md-9,
+      .col-md-3 {
+        width: 100% !important;
+      }
+    }
+
+    .col-md-9 {
+
+      width: 75%;
+      float: left;
+
+    }
+
+    .col-md-3 {
+
+      width: 24%;
+      float: left;
+
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <div class="firstDiv">
+      <span class="header">Shuffle and sort</span>
+      <div class="maindiv">
+        <div class="col-md-9">
+          <div>
+            <div class=" box mobile-box1" style="background-color: #6F98A8;">1</div>
+            <div class=" box mobile-box2" style="background-color: #2B8EAD;">2</div>
+            <div class=" box mobile-box3" style="background-color: #2F454E;">3</div>
+          </div>
+          <div>
+            <div class=" box mobile-box4" style="background-color: #2B8EAD">4</div>
+            <div class=" box mobile-box5" style="background-color: #2F454E">5</div>
+            <div class=" box mobile-box6" style="background-color: #BFBFBF">6</div>
+          </div>
+          <div>
+            <div class=" box mobile-box7" style="background-color: #BFBFBF">7</div>
+            <div class=" box mobile-box8" style="background-color: #6F98A8">8</div>
+            <div class=" box mobile-box9" style="background-color: #2F454E">9</div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <button class="btn-shuffle-sort" onclick="shuffle()">SHUFFLE</button>
+          <button class="btn-shuffle-sort" onclick="sort()">SORT</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <span class="footer">Shuffle and sort by {{ Naman Saxena }}</span>
+
+  <script>
+    var array = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    function shuffle() {
+      const arrayBoxes = document.querySelectorAll(".box");
+      var shuffleArr = shuffleArrayMethod(array);
+      for (var i = 0; i < arrayBoxes.length; i++) {
+        arrayBoxes[i].innerHtml = shuffleArr[i];
+        arrayBoxes[i].innerText = shuffleArr[i];
+      }
+    }
+    function sort() {
+      const arrayBoxes = document.querySelectorAll(".box");
+      var sortArr = sortArrayMethod(array)
+      for (var i = 0; i < arrayBoxes.length; i++) {
+        arrayBoxes[i].innerHtml = sortArr[i];
+        arrayBoxes[i].innerText = sortArr[i];
+      }
+    }
+
+    function shuffleArrayMethod(array) {
+      var ar = array.sort(() => Math.random() - 0.5);
+      return ar;
+    }
+    function sortArrayMethod(array) {
+      var ar = array.sort();
+      return ar;
+    }
+  </script>
+</body>
+
+</html>
